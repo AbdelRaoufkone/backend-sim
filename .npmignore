@@ -1,0 +1,5 @@
+/tests/
+.eslintrc.js
+.prettierrc.js
+nodemon.json
+node_modules/
