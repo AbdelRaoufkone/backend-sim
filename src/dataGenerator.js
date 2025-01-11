@@ -1,6 +1,15 @@
 import { faker } from '@faker-js/faker';
 
 export function generateFullData(type, count = 1) {
+  const supportedTypes = ['person', 'finance', 'location', 'date', 'commerce'];
+
+  if (!supportedTypes.includes(type)) {
+    throw new Error(`Unsupported data type. Supported types are: ${supportedTypes.join(', ')}`);
+  }
+
+  if (typeof count !== 'number' || count <= 0) {
+    throw new Error('Count must be a positive number.');
+  }
   const data = [];
 
   // Fonction pour générer des données personnelles

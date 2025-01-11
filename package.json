@@ -6,7 +6,8 @@
   "types": "src/backend-sim.d.ts",
   "type": "module",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm version patch"
   },
   "keywords": [
     "faker",
