@@ -7,7 +7,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "prepublishOnly": "npm version patch"
+    "prepublishOnly": "npm version patch",
+    "start-api": "node src/index.js --start-api"
   },
   "keywords": [
     "faker",
@@ -21,11 +22,12 @@
   "author": "AbdiRaK (AbdelRaouf KONE) <abdel.koner@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@faker-js/faker": "^9.3.0"
+    "@faker-js/faker": "^9.3.0",
+    "express": "^4.21.2"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
     "eslint": "^9.16.0",
+    "jest": "^29.7.0",
     "prettier": "^3.4.2"
   }
 }

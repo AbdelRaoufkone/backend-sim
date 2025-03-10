@@ -1,3 +1,4 @@
+//test/dataGenerator.test.js
 import { generateFullData } from '../src/utils/dataGenerator.js';
 
 describe('generateFullData', () => {

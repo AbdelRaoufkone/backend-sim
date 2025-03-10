@@ -1,5 +1,4 @@
-//src/api.js
-
+// src/api.js
 import express from 'express';
 import { generateFullData } from './dataGenerator.js';
 
@@ -22,7 +21,7 @@ app.get('/api/:type', (req, res) => {
   }
 });
 
-// Démarrer le serveur
+// Fonction pour démarrer le serveur
 export function simApiServer() {
   app.listen(PORT, () => {
     console.log(`API server is running at http://localhost:${PORT}`);
