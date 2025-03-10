@@ -1,6 +1,6 @@
 {
   "name": "backend-sim",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A package for generating fake data (person, finance, location, etc.) for various use cases.",
   "main": "src/index.js",
   "types": "src/backend-sim.d.ts",
@@ -17,7 +17,9 @@
     "data-generator",
     "fake-data-generator",
     "faker-js",
-    "mock-data-generator"
+    "mock-data-generator",
+    "api",
+    "fake api","api simulation", "rest-api"
   ],
   "author": "AbdiRaK (AbdelRaouf KONE) <abdel.koner@gmail.com>",
   "license": "MIT",
