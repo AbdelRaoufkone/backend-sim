@@ -1,0 +1,23 @@
+services:
+  backend-sim:
+    build:
+      context: .
+      target: production
+    image: backend-sim:latest
+    container_name: backend-sim
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: 3000
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      RATE_LIMIT: ${RATE_LIMIT:-200}
+      MAX_COUNT: ${MAX_COUNT:-100}
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

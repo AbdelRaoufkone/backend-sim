@@ -1,13 +1,13 @@
 // src/index.js
-import { generateFullData } from './dataGenerator.js';
+import 'dotenv/config';
+import { generateFullData, SUPPORTED_TYPES } from './dataGenerator.js';
 import { simApiServer } from './api.js';
 
-// Vérifier les arguments passés lors de l'exécution
 if (process.argv.includes('--start-api')) {
-  simApiServer(); // Démarrer l'API
-} else {
-  console.log('API non démarrée. Utilisez --start-api pour démarrer le serveur.');
+  simApiServer();
+} else if (process.argv[1] && process.argv[1].endsWith('index.js')) {
+  console.log('Use --start-api flag to start the API server.');
+  console.log(`Supported types: ${SUPPORTED_TYPES.join(', ')}`);
 }
 
-// Exporter les fonctionnalités
-export { generateFullData,simApiServer};
+export { generateFullData, simApiServer, SUPPORTED_TYPES };

@@ -1,14 +1,25 @@
 {
   "name": "backend-sim",
-  "version": "1.1.0",
-  "description": "A package for generating fake data (person, finance, location, etc.) for various use cases.",
+  "version": "2.0.0",
+  "description": "Ultra-fast realistic fake/mock data generator with REST API, Swagger docs, seeding, locales, rate limiting, and 9 data types.",
   "main": "src/index.js",
   "types": "src/backend-sim.d.ts",
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "prepublishOnly": "npm version patch",
-    "start-api": "node src/index.js --start-api"
+    "start": "node src/index.js --start-api",
+    "start-api": "node src/index.js --start-api",
+    "dev": "NODE_ENV=development node --watch src/index.js --start-api",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test:watch": "node --experimental-vm-modules node_modules/.bin/jest --watch",
+    "test:coverage": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "lint": "eslint src/ test/",
+    "format": "prettier --write src/ test/",
+    "docker:build": "docker build -t backend-sim .",
+    "docker:run": "docker compose up",
+    "prepublishOnly": "npm test"
+  },
+  "exports": {
+    ".": "./src/index.js"
   },
   "keywords": [
     "faker",
@@ -19,13 +30,35 @@
     "faker-js",
     "mock-data-generator",
     "api",
-    "fake api","api simulation", "rest-api"
+    "rest-api",
+    "api-simulation",
+    "swagger",
+    "openapi",
+    "seed",
+    "locale",
+    "bulk-generation",
+    "express"
   ],
   "author": "AbdiRaK (AbdelRaouf KONE) <abdel.koner@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@faker-js/faker": "^9.3.0",
-    "express": "^4.21.2"
+    "compression": "^1.8.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.3.2",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^13.0.0",
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
+  },
+  "jest": {
+    "transform": {},
+    "testEnvironment": "node"
   },
   "devDependencies": {
     "eslint": "^9.16.0",
